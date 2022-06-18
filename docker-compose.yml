@@ -25,18 +25,18 @@ services:
     ports:
       - 9200:9200
     networks: ["stack"]
-  kibana:
-    container_name: kibana
-    image: docker.elastic.co/kibana/kibana:$ELASTICSEARCH_VERSION
-    restart: always
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      - ELASTICSEARCH_USERNAME=$ELASTICSEARCH_USERNAME
-      - ELASTICSEARCH_PASSWORD=$ELASTICSEARCH_PASSWORD # address of elasticsearch docker container which kibana will connect
-    ports:
-      - 5601:5601
-    depends_on:
-      - elasticsearch
-    networks: ["stack"]
+  # kibana:
+  #   container_name: kibana
+  #   image: docker.elastic.co/kibana/kibana:$ELASTICSEARCH_VERSION
+  #   restart: always
+  #   environment:
+  #     - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+  #     - ELASTICSEARCH_USERNAME=$ELASTICSEARCH_USERNAME
+  #     - ELASTICSEARCH_PASSWORD=$ELASTICSEARCH_PASSWORD # address of elasticsearch docker container which kibana will connect
+  #   ports:
+  #     - 5601:5601
+  #   depends_on:
+  #     - elasticsearch
+  #   networks: ["stack"]
 networks:
   stack: {}
